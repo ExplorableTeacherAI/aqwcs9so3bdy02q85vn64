@@ -8,7 +8,8 @@ import {
     InlineFormula,
     Table,
 } from "@/components/atoms";
-import { VisualOptionCards } from "@/components/organisms";
+import { TriangleBuilder } from "./visuals/TriangleBuilder";
+import { MultipleChoiceQuestion } from "./practice/MultipleChoiceQuestion";
 
 const stageColumns = [
     { header: "Stage", align: "left" as const, width: 150 },
@@ -32,8 +33,9 @@ export const triangleConstructionsBlocks: ReactElement[] = [
             >
                 A triangle has six measurements, three sides and three angles, but only
                 three of them are ever needed to fix it. Each case below tells you which
-                three, and the order in which to put them on the page. Always start with
-                the side you are given and work outwards from it.
+                three, and the order in which to put them on the page. Choose a case in
+                the builder, step through the stages, then change the given numbers and
+                see which sets of measurements refuse to make a triangle at all.
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -76,35 +78,8 @@ export const triangleConstructionsBlocks: ReactElement[] = [
     </StackLayout>,
 
     <StackLayout key="layout-triangles-viewer" maxWidth="xl">
-        <Block id="triangles-viewer" padding="sm">
-            <VisualOptionCards
-                blockId="triangles-viewer"
-                intro="Pick how your students will build the three triangle cases."
-                cards={[
-                    {
-                        id: "three-case-builder",
-                        title: "A builder that constructs each of the three cases stage by stage on a lettered base line",
-                        looks: "A base line with its length marked, arcs or angle arms appearing above it, and the finished triangle with all given measurements labelled.",
-                        manipulate: "Students choose a case, then step forwards and backwards through the stages, and change the given lengths or angles before rebuilding.",
-                        reveals: "How each case pins down the third corner in a different way, and that the finished triangle is always the same shape for the same data.",
-                        recommended: true,
-                    },
-                    {
-                        id: "triangle-inequality-test",
-                        title: "Three side lengths students set, with the arcs failing when a triangle is impossible",
-                        looks: "A base line with two arcs swung from its ends, and controls for all three side lengths.",
-                        manipulate: "Students shorten the two upper sides until the arcs no longer reach each other and no corner can be marked.",
-                        reveals: "A triangle only exists when the two shorter sides together beat the longest one.",
-                    },
-                    {
-                        id: "sas-versus-ssa",
-                        title: "The same two sides with the angle placed between them and then not between them",
-                        looks: "Two triangles side by side built from identical numbers, one with the angle at the corner between the given sides and one with it elsewhere.",
-                        manipulate: "Students move the angle from between the sides to outside and watch the second version produce two different triangles.",
-                        reveals: "Why the word 'included' matters: only the angle between the two sides fixes a single triangle.",
-                    },
-                ]}
-            />
+        <Block id="triangles-viewer" padding="sm" hasVisualization>
+            <TriangleBuilder />
         </Block>
     </StackLayout>,
 
@@ -423,6 +398,131 @@ export const triangleConstructionsBlocks: ReactElement[] = [
                 ]}
                 color="#6366f1"
                 caption="Triangle case C — One side and two angles (ASA)"
+            />
+        </Block>
+    </StackLayout>,
+
+    <StackLayout key="layout-triangles-practice-heading" maxWidth="xl">
+        <Block id="triangles-practice-heading" padding="sm">
+            <EditableH3
+                id="h3-triangles-practice-heading"
+                blockId="triangles-practice-heading"
+            >
+                Check Your Understanding
+            </EditableH3>
+        </Block>
+    </StackLayout>,
+
+    <StackLayout key="layout-triangles-practice-impossible" maxWidth="xl">
+        <Block id="triangles-practice-impossible" padding="sm">
+            <MultipleChoiceQuestion
+                blockId="triangles-practice-impossible"
+                questionId="para-triangles-practice-impossible"
+                question="Four sets of three lengths are handed out for construction. One of them is a trick, and the arcs for it will never cross. Which set is it?"
+                options={[
+                    {
+                        id: "six-seven-eight",
+                        label: "6 cm, 7 cm and 8 cm",
+                        feedback: "6 and 7 together reach 13 cm, comfortably past the 8 cm base, so these arcs cross easily.",
+                    },
+                    {
+                        id: "four-five-ten",
+                        label: "4 cm, 5 cm and 10 cm",
+                        correct: true,
+                    },
+                    {
+                        id: "three-four-five",
+                        label: "3 cm, 4 cm and 5 cm",
+                        feedback: "3 and 4 together reach 7 cm, which is more than the 5 cm base. This is the familiar right-angled triangle.",
+                    },
+                    {
+                        id: "five-five-nine",
+                        label: "5 cm, 5 cm and 9 cm",
+                        feedback: "5 and 5 reach 10 cm against a 9 cm base, so the arcs just manage to cross and make a long thin triangle.",
+                    },
+                ]}
+                correctFeedback="Correct. 4 and 5 only reach 9 cm between them, which cannot bridge a 10 cm base, so the two arcs stop short of each other and no third corner ever appears."
+                hints={[
+                    "Set the builder above to the three-sides case and try each set of numbers on the sliders.",
+                    "For each set, take the two shorter lengths and add them. Compare the total with the longest length.",
+                    "The two shorter sides must add up to more than the longest side. Only one of these four sets fails that test.",
+                ]}
+            />
+        </Block>
+    </StackLayout>,
+
+    <StackLayout key="layout-triangles-practice-included" maxWidth="xl">
+        <Block id="triangles-practice-included" padding="sm">
+            <MultipleChoiceQuestion
+                blockId="triangles-practice-included"
+                questionId="para-triangles-practice-included"
+                question="A question gives PQ = 6 cm, QR = 5 cm and angle P = 40 degrees. Sami starts by drawing PQ and setting 40 degrees at P, then tries to cut off QR from there. Why does his method not work?"
+                options={[
+                    {
+                        id: "angle-too-small",
+                        label: "40 degrees is too small an angle to construct.",
+                        feedback: "40 degrees is a perfectly ordinary angle to set with a protractor here. The problem is where the angle sits.",
+                    },
+                    {
+                        id: "not-included",
+                        label: "The two given sides meet at Q, not at P, so angle P is not the angle between them and the standard method does not apply.",
+                        correct: true,
+                    },
+                    {
+                        id: "wrong-order",
+                        label: "He should have drawn QR first instead of PQ.",
+                        feedback: "Either given side can be the base. Swapping them does not change which corner the given angle is at.",
+                    },
+                    {
+                        id: "needs-three-sides",
+                        label: "You always need three sides to construct a triangle.",
+                        feedback: "Two sides and an angle are enough — but only when the angle is in the right place.",
+                    },
+                ]}
+                correctFeedback="Exactly. QR runs from Q, not from P, so cutting 5 cm along the ray at P marks a point that has nothing to do with R. Angle Q would have been the included angle."
+                hints={[
+                    "Open the two-sides-and-the-included-angle case above and look at which corner the angle slider controls.",
+                    "In the builder the given sides are AB and AC, and the angle sits at A — the corner they share. Now check which corner PQ and QR share.",
+                    "PQ and QR both pass through Q, so Q is the included angle. The given angle at P is somewhere else entirely.",
+                ]}
+            />
+        </Block>
+    </StackLayout>,
+
+    <StackLayout key="layout-triangles-practice-angle-sum" maxWidth="xl">
+        <Block id="triangles-practice-angle-sum" padding="sm">
+            <MultipleChoiceQuestion
+                blockId="triangles-practice-angle-sum"
+                questionId="para-triangles-practice-angle-sum"
+                question="A worksheet asks for a triangle with BC = 8 cm, angle B = 110 degrees and angle C = 75 degrees. What will happen on the page?"
+                options={[
+                    {
+                        id: "long-thin",
+                        label: "A very long thin triangle will appear, running off the edge of the paper.",
+                        feedback: "That is what happens when the two angles come to just under 180. Add these two and see whether they do.",
+                    },
+                    {
+                        id: "rays-diverge",
+                        label: "The two rays lean away from each other and never meet, because the given angles already come to more than 180 degrees.",
+                        correct: true,
+                    },
+                    {
+                        id: "third-angle-negative",
+                        label: "The triangle works, but the third angle comes out as 5 degrees.",
+                        feedback: "Check the arithmetic: 110 and 75 do not leave 5 degrees behind out of 180.",
+                    },
+                    {
+                        id: "obtuse-fine",
+                        label: "It works normally — a triangle is allowed to have an obtuse angle.",
+                        feedback: "A triangle may certainly have one obtuse angle, but it cannot have two angles that together exceed the whole angle sum.",
+                    },
+                ]}
+                correctFeedback="Yes. 110 and 75 add to 185, already past the 180 degrees a triangle has to share out, so the rays open away from each other and no third corner can exist."
+                hints={[
+                    "Set the one-side-and-two-angles case above to 110 and 75 and read what the builder says.",
+                    "The three angles of a triangle add to 180. Work out what is left for angle A after 110 and 75 are taken.",
+                    "There is nothing left — the two given angles have already used more than 180 degrees between them.",
+                ]}
             />
         </Block>
     </StackLayout>,
