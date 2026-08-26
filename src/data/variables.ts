@@ -104,6 +104,26 @@ export const variableDefinitions: Record<string, VariableDefinition> = {
     },
 
     // ========================================
+    // Angle bisector — adjustable angle
+    // ========================================
+    angleToBisect: {
+        defaultValue: 74,
+        type: 'number',
+        label: 'Angle between the arms',
+        description: 'Size in degrees of the angle that the bisector construction is applied to',
+        unit: 'degrees',
+        min: 20,
+        max: 150,
+        step: 1,
+    },
+    showBisectorRhombus: {
+        defaultValue: false,
+        type: 'boolean',
+        label: 'Show the rhombus',
+        description: 'Shades the rhombus BPRQ that the four equal arc lengths create',
+    },
+
+    // ========================================
     // ADD YOUR VARIABLES HERE
     // ========================================
 

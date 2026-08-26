@@ -8,7 +8,8 @@ import {
     InlineFormula,
     Table,
 } from "@/components/atoms";
-import { VisualOptionCards } from "@/components/organisms";
+import { AdjustableAngleBisector } from "./visuals/AdjustableAngleBisector";
+import { MultipleChoiceQuestion } from "./practice/MultipleChoiceQuestion";
 
 const stageColumns = [
     { header: "Stage", align: "left" as const, width: 150 },
@@ -33,43 +34,15 @@ export const bisectorsAndParallelsBlocks: ReactElement[] = [
                 These three constructions all work by building a rhombus out of arcs of
                 equal length. Because the sides of a rhombus are equal, its diagonal
                 splits the corner angle exactly in half, and its opposite sides are
-                parallel. The compasses do the reasoning; you only have to keep the width
-                fixed where the steps say so.
+                parallel. Swing the arms below through every angle you like, sharp or
+                obtuse, and watch the same four arcs keep the two halves equal.
             </EditableParagraph>
         </Block>
     </StackLayout>,
 
     <StackLayout key="layout-bisectors-viewer" maxWidth="xl">
-        <Block id="bisectors-viewer" padding="sm">
-            <VisualOptionCards
-                blockId="bisectors-viewer"
-                intro="Pick how your students will explore bisecting, copying and parallels."
-                cards={[
-                    {
-                        id: "adjustable-angle-bisector",
-                        title: "An angle whose arms students swing, with the bisector and its two equal halves shown",
-                        looks: "A lettered angle with a movable arm, the arcs of the construction drawn in, and both halves labelled with their size.",
-                        manipulate: "Students swing the arm from a very sharp angle to a very wide one and watch the bisector follow, keeping the two halves equal.",
-                        reveals: "The construction works for any angle, sharp or obtuse, and the halves stay equal without anything being measured.",
-                        recommended: true,
-                    },
-                    {
-                        id: "copy-angle-transfer",
-                        title: "An angle being lifted off one place on the page and rebuilt somewhere else",
-                        looks: "An original lettered angle on the left and an empty ray on the right, with the transferred arc and chord shown as they are carried across.",
-                        manipulate: "Students step through carrying the arc and then the chord, and can drag the original angle to a new size and repeat.",
-                        reveals: "That an angle is copied by copying one arc and one chord length, never by reading a protractor.",
-                        targetsMisconception: "Students measure with a protractor instead of using arcs",
-                    },
-                    {
-                        id: "parallel-rhombus",
-                        title: "A parallel line built through a point, with the rhombus that makes it work picked out",
-                        looks: "A line, a point above it, a slanting line joining them, and the four equal arc lengths shaded to show the rhombus.",
-                        manipulate: "Students drag the point up and down and watch the new line stay parallel, with the equal sides staying equal.",
-                        reveals: "Why equal arcs force the new line to keep the same direction as the original.",
-                    },
-                ]}
-            />
+        <Block id="bisectors-viewer" padding="sm" hasVisualization>
+            <AdjustableAngleBisector />
         </Block>
     </StackLayout>,
 
@@ -422,6 +395,131 @@ export const bisectorsAndParallelsBlocks: ReactElement[] = [
                 ]}
                 color="#6366f1"
                 caption="Construction 7 — Copying a given angle"
+            />
+        </Block>
+    </StackLayout>,
+
+    <StackLayout key="layout-bisectors-practice-heading" maxWidth="xl">
+        <Block id="bisectors-practice-heading" padding="sm">
+            <EditableH3
+                id="h3-bisectors-practice-heading"
+                blockId="bisectors-practice-heading"
+            >
+                Check Your Understanding
+            </EditableH3>
+        </Block>
+    </StackLayout>,
+
+    <StackLayout key="layout-bisectors-practice-chaining" maxWidth="xl">
+        <Block id="bisectors-practice-chaining" padding="sm">
+            <MultipleChoiceQuestion
+                blockId="bisectors-practice-chaining"
+                questionId="para-bisectors-practice-chaining"
+                question="A design needs an angle of 22 and a half degrees, and only a straightedge and compasses may be used. Which route gets there?"
+                options={[
+                    {
+                        id: "protractor-quarter",
+                        label: "Draw 90 degrees with a protractor and mark a quarter of it by measuring.",
+                        feedback: "Measuring is not allowed here, and it also throws away the accuracy the arcs would have given you.",
+                    },
+                    {
+                        id: "double-bisect",
+                        label: "Construct a right angle, bisect it to get 45 degrees, then bisect that.",
+                        correct: true,
+                    },
+                    {
+                        id: "bisect-sixty",
+                        label: "Construct 60 degrees and bisect it twice.",
+                        feedback: "Bisecting 60 twice lands on 15 degrees, not 22 and a half. Start from an angle that halves cleanly to 45.",
+                    },
+                    {
+                        id: "impossible",
+                        label: "It cannot be done with arcs, because 22 and a half is not a whole number.",
+                        feedback: "Halving never cares whether the answer is a whole number — the arcs cut the angle exactly however it falls.",
+                    },
+                ]}
+                correctFeedback="Exactly. Each bisection halves what you already have, so 90 becomes 45 and 45 becomes 22 and a half — three constructions chained together, with every set of arcs left on the page."
+                hints={[
+                    "Set the slider above to 90 and read the two half-angle labels. Then imagine feeding one of those halves back into the same construction.",
+                    "Doubling 22 and a half gives 45; doubling again gives 90. Work the chain backwards from there.",
+                    "Start with a right angle, bisect for 45, bisect once more for 22 and a half.",
+                ]}
+            />
+        </Block>
+    </StackLayout>,
+
+    <StackLayout key="layout-bisectors-practice-parallel-radius" maxWidth="xl">
+        <Block id="bisectors-practice-parallel-radius" padding="sm">
+            <MultipleChoiceQuestion
+                blockId="bisectors-practice-parallel-radius"
+                questionId="para-bisectors-practice-parallel-radius"
+                question="Constructing a parallel through P, Idris swings the arc from A, then resets his compasses to a new, larger radius before swinging the arc from P in Step 3. He finishes the rest correctly. What is wrong with his line?"
+                options={[
+                    {
+                        id: "still-parallel",
+                        label: "Nothing — the radius at P was never important.",
+                        feedback: "That radius is doing a job. Ask yourself what the two arcs of equal radius are being used to carry across.",
+                    },
+                    {
+                        id: "angle-not-copied",
+                        label: "The angle at P is no longer equal to the angle at A, so the line he draws slants and is not parallel.",
+                        correct: true,
+                    },
+                    {
+                        id: "wrong-length",
+                        label: "The line will be parallel but too short.",
+                        feedback: "Length is never the issue with a parallel line — it can be extended as far as you like. The direction is what changed.",
+                    },
+                    {
+                        id: "wrong-side",
+                        label: "The line will be parallel but on the wrong side of P.",
+                        feedback: "A line through P has no sides to get wrong. Think about the angle the construction is copying.",
+                    },
+                ]}
+                correctFeedback="Right. The whole construction is a copied angle: the equal radius carries the shape of the angle from A to P, and the chord XY sets its opening. Change the radius and the copy is a different angle, so the lines are no longer parallel."
+                hints={[
+                    "Reread the note under Construction 6 about what the construction is really doing.",
+                    "Equal corresponding angles are what make two lines parallel. Which parts of the construction guarantee the angles are equal?",
+                    "The arc at P must have the same radius as the arc at A, or the chord XY no longer cuts off the same angle and the copy comes out different.",
+                ]}
+            />
+        </Block>
+    </StackLayout>,
+
+    <StackLayout key="layout-bisectors-practice-drain" maxWidth="xl">
+        <Block id="bisectors-practice-drain" padding="sm">
+            <MultipleChoiceQuestion
+                blockId="bisectors-practice-drain"
+                questionId="para-bisectors-practice-drain"
+                question="Two straight roads meet at a junction. A drainage channel has to run away from the junction so that it stays the same distance from both roads all the way along. Which construction gives its path?"
+                options={[
+                    {
+                        id: "angle-bisector",
+                        label: "The bisector of the angle between the two roads.",
+                        correct: true,
+                    },
+                    {
+                        id: "perp-bisector",
+                        label: "The perpendicular bisector of the line joining two points on the roads.",
+                        feedback: "That gives points equally far from two fixed points, but the channel must stay equally far from two whole roads.",
+                    },
+                    {
+                        id: "parallel",
+                        label: "A line parallel to one of the roads.",
+                        feedback: "A parallel line keeps a fixed distance from one road, but its distance from the other road changes all the way along.",
+                    },
+                    {
+                        id: "perpendicular",
+                        label: "A perpendicular dropped from the junction to one road.",
+                        feedback: "The junction is already on both roads, so there is nothing to drop a perpendicular from.",
+                    },
+                ]}
+                correctFeedback="Yes. Every point on an angle bisector is the same distance from both arms, so the bisector of the junction angle is exactly the path the channel must follow."
+                hints={[
+                    "Look at the last line of the notes under Construction 5.",
+                    "You need points that are equally far from two lines, not from two points. Which construction has that property built into it?",
+                    "The angle bisector is the set of all points equally distant from both arms of the angle, which is precisely what the channel needs.",
+                ]}
             />
         </Block>
     </StackLayout>,
