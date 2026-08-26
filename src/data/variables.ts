@@ -74,6 +74,36 @@ export interface VariableDefinition {
  */
 export const variableDefinitions: Record<string, VariableDefinition> = {
     // ========================================
+    // Perpendicular bisector — compass width test
+    // ========================================
+    compassOpeningFromA: {
+        defaultValue: 5,
+        type: 'number',
+        label: 'Opening used from A',
+        description: 'Compass radius, in cm, for the pair of arcs swung from end A of the 8 cm segment AB',
+        unit: 'cm',
+        min: 2,
+        max: 7,
+        step: 0.1,
+    },
+    compassOpeningFromB: {
+        defaultValue: 5,
+        type: 'number',
+        label: 'Opening used from B',
+        description: 'Compass radius, in cm, for the pair of arcs swung from end B of the 8 cm segment AB',
+        unit: 'cm',
+        min: 2,
+        max: 7,
+        step: 0.1,
+    },
+    compassWidthsLocked: {
+        defaultValue: true,
+        type: 'boolean',
+        label: 'Keep both openings equal',
+        description: 'When true the two compass openings move together, as they must in a correct construction',
+    },
+
+    // ========================================
     // ADD YOUR VARIABLES HERE
     // ========================================
 
