@@ -7,7 +7,8 @@ import {
     EditableParagraph,
     Table,
 } from "@/components/atoms";
-import { VisualOptionCards } from "@/components/organisms";
+import { InstrumentToolkitDiagram } from "./visuals/InstrumentToolkitDiagram";
+import { MultipleChoiceQuestion } from "./practice/MultipleChoiceQuestion";
 
 export const constructionInstrumentsBlocks: ReactElement[] = [
     <StackLayout key="layout-instruments-title" maxWidth="xl">
@@ -26,8 +27,9 @@ export const constructionInstrumentsBlocks: ReactElement[] = [
             >
                 Three instruments do all the work: a straightedge, a pair of compasses
                 and a sharp pencil. A protractor has its own place, but that place is
-                narrow. Knowing exactly what each tool is for is what separates a
-                construction that earns full marks from one that does not.
+                narrow. Click each instrument in the picture below to see exactly where
+                it is allowed and where it is not — that line is what separates a
+                construction earning full marks from one that earns none.
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -79,37 +81,8 @@ export const constructionInstrumentsBlocks: ReactElement[] = [
     </StackLayout>,
 
     <StackLayout key="layout-instruments-diagram" maxWidth="xl">
-        <Block id="instruments-diagram" padding="sm">
-            <VisualOptionCards
-                blockId="instruments-diagram"
-                intro="Pick how your students will see the instruments and the habits that go with them."
-                cards={[
-                    {
-                        id: "compass-in-use",
-                        title: "A pair of compasses shown in use, with the four common mistakes acted out one at a time",
-                        looks: "A large clear drawing of compasses standing on a line, with a labelled hinge, point and pencil arm. Beside it a small panel names one mistake at a time.",
-                        manipulate: "Students step through the mistakes one by one: a slipping hinge, an arc drawn too short, arcs rubbed out, and a protractor used instead of arcs. The drawing changes to show what the page then looks like.",
-                        reveals: "Each bad habit produces a figure that is visibly wrong or impossible to mark, so the rule is not just something to memorise.",
-                        targetsMisconception: "Students change the compass width midway, draw arcs too short, rub out arcs, or measure instead of using arcs",
-                        recommended: true,
-                    },
-                    {
-                        id: "labelled-toolkit",
-                        title: "A labelled picture of all four instruments side by side",
-                        looks: "The straightedge, compasses, pencil and protractor drawn next to each other, each with its parts labelled.",
-                        manipulate: "Students click an instrument to see what it may and may not be used for in a construction.",
-                        reveals: "Which tool is allowed at which moment, and why the protractor sits apart from the other three.",
-                    },
-                    {
-                        id: "arc-length-slider",
-                        title: "One construction repeated with arcs of different lengths",
-                        looks: "A line segment with two arcs swung from its ends. A control makes the arcs longer or shorter.",
-                        manipulate: "Students shorten the arcs until the pair no longer crosses, then lengthen them again.",
-                        reveals: "The crossing point only exists when the arcs are drawn generously, which is why short arcs waste time.",
-                        targetsMisconception: "Students draw arcs too short, so the arcs never cross",
-                    },
-                ]}
-            />
+        <Block id="instruments-diagram" padding="sm" hasVisualization>
+            <InstrumentToolkitDiagram />
         </Block>
     </StackLayout>,
 
@@ -159,6 +132,131 @@ export const constructionInstrumentsBlocks: ReactElement[] = [
                 ]}
                 color="#ef4444"
                 caption="Table 3 — The habits that decide the marks"
+            />
+        </Block>
+    </StackLayout>,
+
+    <StackLayout key="layout-instruments-practice-heading" maxWidth="xl">
+        <Block id="instruments-practice-heading" padding="sm">
+            <EditableH3
+                id="h3-instruments-practice-heading"
+                blockId="instruments-practice-heading"
+            >
+                Check Your Understanding
+            </EditableH3>
+        </Block>
+    </StackLayout>,
+
+    <StackLayout key="layout-instruments-practice-protractor" maxWidth="xl">
+        <Block id="instruments-practice-protractor" padding="sm">
+            <MultipleChoiceQuestion
+                blockId="instruments-practice-protractor"
+                questionId="para-instruments-practice-protractor"
+                question="A question says: Construct an angle of 60 degrees at the point B. Nadia sets her protractor on the line and draws the angle. It measures 60 degrees exactly, and her line is beautifully neat. Her teacher gives her no marks. Why?"
+                options={[
+                    {
+                        id: "not-accurate",
+                        label: "Her angle is not really 60 degrees, because protractors are inaccurate.",
+                        feedback: "Her angle is genuinely 60 degrees — accuracy is not the problem here.",
+                    },
+                    {
+                        id: "no-construction",
+                        label: "The word construct means arcs only, so she has produced a drawing rather than a construction.",
+                        correct: true,
+                    },
+                    {
+                        id: "wrong-side",
+                        label: "She should have drawn the angle below the line rather than above it.",
+                        feedback: "Either side of the line is acceptable; the side is not what cost her the marks.",
+                    },
+                    {
+                        id: "no-labels",
+                        label: "She forgot to label the vertex B.",
+                        feedback: "Labelling matters, but it is not the reason a whole answer scores nothing.",
+                    },
+                ]}
+                correctFeedback="Exactly right. Construct is an instruction about method, not about the finished picture: the marks are for the arcs that prove the angle was built, and a protractor leaves none behind."
+                hints={[
+                    "Look again at the protractor card in the picture above and read what it may never be used for.",
+                    "Click the protractor, then the compasses. One of them is allowed to produce an angle a question asks you to construct; the other is only allowed to check one afterwards.",
+                    "The protractor panel says it may never produce an angle the question asks you to construct — so nothing on Nadia's page shows a construction happened.",
+                ]}
+            />
+        </Block>
+    </StackLayout>,
+
+    <StackLayout key="layout-instruments-practice-slipped-hinge" maxWidth="xl">
+        <Block id="instruments-practice-slipped-hinge" padding="sm">
+            <MultipleChoiceQuestion
+                blockId="instruments-practice-slipped-hinge"
+                questionId="para-instruments-practice-slipped-hinge"
+                question="Halfway through a construction, Sam's compass hinge slips and opens about 2 mm wider. He carries on, his arcs still cross, and he draws a clean line through the crossings. What is true of his answer?"
+                options={[
+                    {
+                        id: "fine-because-crossed",
+                        label: "It is fine, because the arcs still crossed and he could draw the line.",
+                        feedback: "Crossing is not enough on its own — the crossings have to be in the right place.",
+                    },
+                    {
+                        id: "wrong-but-looks-right",
+                        label: "The crossings are no longer equally far from both ends, so the line is wrong even though it looks convincing.",
+                        correct: true,
+                    },
+                    {
+                        id: "only-2mm",
+                        label: "A 2 mm slip is smaller than the pencil line, so it cannot change anything.",
+                        feedback: "The slip is small, but it moves both crossing points the same way, which tilts the whole line.",
+                    },
+                    {
+                        id: "fixable-by-measuring",
+                        label: "He can fix it by measuring the line with a ruler at the end.",
+                        feedback: "Measuring afterwards would only tell him it is wrong; it would not make the construction valid.",
+                    },
+                ]}
+                correctFeedback="Yes. These constructions work because two distances are exactly equal, so a width that changes mid-step breaks the very thing that makes the answer correct — and nothing on the page shows it."
+                hints={[
+                    "Click the compasses in the picture above and read the second line under never use it for.",
+                    "Ask what job the fixed width is doing. It is what makes the two arcs from each end reach the same distance.",
+                    "Once one width is wider, the crossing points are no longer the same distance from both ends, so the line through them is not the true bisector — however tidy it looks.",
+                ]}
+            />
+        </Block>
+    </StackLayout>,
+
+    <StackLayout key="layout-instruments-practice-rubbed-arcs" maxWidth="xl">
+        <Block id="instruments-practice-rubbed-arcs" padding="sm">
+            <MultipleChoiceQuestion
+                blockId="instruments-practice-rubbed-arcs"
+                questionId="para-instruments-practice-rubbed-arcs"
+                question="Two students hand in identical-looking figures. Priya leaves her faint arcs showing; Tom rubs his out so the page looks tidy. Priya scores full marks and Tom loses most of his. What does that tell you about what the arcs are for?"
+                options={[
+                    {
+                        id: "neatness-penalty",
+                        label: "Tidy work is penalised, so it is better to leave the page messy.",
+                        feedback: "Neatness is never penalised — something else is being rewarded here.",
+                    },
+                    {
+                        id: "arcs-are-working",
+                        label: "The arcs are the working: they are the only evidence on the page that the figure was constructed rather than measured.",
+                        correct: true,
+                    },
+                    {
+                        id: "arcs-decorative",
+                        label: "The arcs are decoration that examiners happen to like.",
+                        feedback: "They are not decoration — think about what a marker can and cannot tell from a finished line alone.",
+                    },
+                    {
+                        id: "tom-was-wrong",
+                        label: "Tom's figure must have been inaccurate somewhere.",
+                        feedback: "The question says the two figures look identical, so accuracy is not what separates them.",
+                    },
+                ]}
+                correctFeedback="That is the heart of it. A bare line could have come from a ruler, a set square or a lucky guess; the arcs are what show the method, exactly like working shown in an algebra answer."
+                hints={[
+                    "Click the pencil in the picture above and read what it must never be used for.",
+                    "Imagine you are the marker looking only at Tom's finished line. Can you tell how he produced it?",
+                    "Without the arcs there is no way to tell a construction from a measurement, so the method marks have nothing to attach to.",
+                ]}
             />
         </Block>
     </StackLayout>,
