@@ -124,6 +124,23 @@ export const variableDefinitions: Record<string, VariableDefinition> = {
     },
 
     // ========================================
+    // Angle builder — constructing angles from arcs
+    // ========================================
+    targetConstructedAngle: {
+        defaultValue: '60',
+        type: 'select',
+        label: 'Angle being built',
+        description: 'Which of the six constructible angles the arc-by-arc builder is showing',
+        options: ['30', '45', '60', '75', '90', '120'],
+    },
+    showProtractorOverlay: {
+        defaultValue: false,
+        type: 'boolean',
+        label: 'Lay a protractor over the finished angle',
+        description: 'Draws a protractor centred on the vertex so the constructed angle can be checked',
+    },
+
+    // ========================================
     // ADD YOUR VARIABLES HERE
     // ========================================
 

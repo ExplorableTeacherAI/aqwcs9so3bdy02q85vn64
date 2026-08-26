@@ -8,7 +8,8 @@ import {
     InlineFormula,
     Table,
 } from "@/components/atoms";
-import { VisualOptionCards } from "@/components/organisms";
+import { AngleBuilder } from "./visuals/AngleBuilder";
+import { MultipleChoiceQuestion } from "./practice/MultipleChoiceQuestion";
 
 const stageColumns = [
     { header: "Stage", align: "left" as const, width: 150 },
@@ -33,8 +34,9 @@ export const constructingAnglesBlocks: ReactElement[] = [
                 Only one angle has to be built from nothing:{" "}
                 <InlineFormula latex="60^\circ" />, which comes free with an equilateral
                 triangle. Everything else in this section is that angle stepped around
-                the arc or cut in half. Put the protractor away — here it is only for
-                checking the finished work.
+                the arc or cut in half. Choose an angle in the builder below and press
+                through it one arc at a time; the protractor comes on at the end only to
+                confirm what the arcs already decided.
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -91,36 +93,8 @@ export const constructingAnglesBlocks: ReactElement[] = [
     </StackLayout>,
 
     <StackLayout key="layout-angles-viewer" maxWidth="xl">
-        <Block id="angles-viewer" padding="sm">
-            <VisualOptionCards
-                blockId="angles-viewer"
-                intro="Pick how your students will see these six angles being built from arcs."
-                cards={[
-                    {
-                        id: "arc-stepping-wheel",
-                        title: "One arc stepped around a half circle to mark 60, 120 and 180, then halved to reach the rest",
-                        looks: "A base line with a large arc above it, and the compass width marked off along the arc so the 60 and 120 points appear.",
-                        manipulate: "Students step the arc round one mark at a time, then press Halve to bisect between any two marks and see the new angle named.",
-                        reveals: "That the whole family of constructible angles grows out of one repeated arc width plus halving.",
-                        recommended: true,
-                    },
-                    {
-                        id: "angle-builder-choice",
-                        title: "An angle builder where students pick a target angle and follow the arcs",
-                        looks: "A blank base line with a menu of the six angles, and the arcs drawn one at a time with the current stage named.",
-                        manipulate: "Students choose an angle, step forwards and backwards through the arcs, and check the finished angle against a protractor overlay at the end.",
-                        reveals: "The route to each angle, and that the constructed result matches the protractor exactly.",
-                        targetsMisconception: "Students measure with a protractor instead of using arcs",
-                    },
-                    {
-                        id: "equilateral-proof",
-                        title: "The equilateral triangle hidden inside the 60 degree construction",
-                        looks: "The two arcs of the 60 degree construction with the triangle they create shaded and its three equal sides marked.",
-                        manipulate: "Students change the compass radius and watch the triangle change size while the angle stays at 60 degrees.",
-                        reveals: "Why the starting radius never matters: any equilateral triangle has 60 degree corners.",
-                    },
-                ]}
-            />
+        <Block id="angles-viewer" padding="sm" hasVisualization>
+            <AngleBuilder />
         </Block>
     </StackLayout>,
 
@@ -747,6 +721,128 @@ export const constructingAnglesBlocks: ReactElement[] = [
                 ]}
                 color="#6366f1"
                 caption="Construction 13 — An angle of 75 degrees"
+            />
+        </Block>
+    </StackLayout>,
+
+    <StackLayout key="layout-angles-practice-heading" maxWidth="xl">
+        <Block id="angles-practice-heading" padding="sm">
+            <EditableH3 id="h3-angles-practice-heading" blockId="angles-practice-heading">
+                Check Your Understanding
+            </EditableH3>
+        </Block>
+    </StackLayout>,
+
+    <StackLayout key="layout-angles-practice-hundred-five" maxWidth="xl">
+        <Block id="angles-practice-hundred-five" padding="sm">
+            <MultipleChoiceQuestion
+                blockId="angles-practice-hundred-five"
+                questionId="para-angles-practice-hundred-five"
+                question="A roof truss drawing calls for an angle of 105 degrees, constructed with arcs only. Which route reaches it?"
+                options={[
+                    {
+                        id: "bisect-90-120",
+                        label: "Construct the 90 degree ray and the 120 degree ray, then bisect between them.",
+                        correct: true,
+                    },
+                    {
+                        id: "bisect-60-120",
+                        label: "Construct the 60 and 120 marks and bisect between them.",
+                        feedback: "That lands halfway between 60 and 120, which is the 90 degree position — 15 degrees short.",
+                    },
+                    {
+                        id: "step-again",
+                        label: "Construct 120 degrees and step the same radius round the arc once more.",
+                        feedback: "Each step adds a further 60 degrees, so that takes you to 180, not 105.",
+                    },
+                    {
+                        id: "bisect-twice",
+                        label: "Construct 120 degrees and bisect it twice.",
+                        feedback: "Bisecting 120 gives 60, and bisecting again gives 30. Halving always makes the angle smaller.",
+                    },
+                ]}
+                correctFeedback="Yes. 105 sits exactly halfway between 90 and 120, so once both of those rays are on the page one more bisection finishes the job."
+                hints={[
+                    "Build 90 and then 120 in the builder above and look at the gap left between the two rays.",
+                    "The gap between the 90 and 120 rays is 30 degrees. Halving that gap adds 15 to the 90.",
+                    "90 plus half of the 30 degree gap is 105, so bisect between the 90 and 120 rays.",
+                ]}
+            />
+        </Block>
+    </StackLayout>,
+
+    <StackLayout key="layout-angles-practice-not-constructible" maxWidth="xl">
+        <Block id="angles-practice-not-constructible" padding="sm">
+            <MultipleChoiceQuestion
+                blockId="angles-practice-not-constructible"
+                questionId="para-angles-practice-not-constructible"
+                question="Every angle in this section came from stepping 60 degrees round an arc or halving a gap. Using only those two moves, which of these angles can you NOT reach?"
+                options={[
+                    {
+                        id: "fifteen",
+                        label: "15 degrees",
+                        feedback: "60 halves to 30, and 30 halves to 15, so this one is reachable.",
+                    },
+                    {
+                        id: "seventy",
+                        label: "70 degrees",
+                        correct: true,
+                    },
+                    {
+                        id: "hundred-fifty",
+                        label: "150 degrees",
+                        feedback: "Three steps of 60 give 180, and halving the gap between 120 and 180 lands on 150.",
+                    },
+                    {
+                        id: "twenty-two-half",
+                        label: "22 and a half degrees",
+                        feedback: "90 halves to 45 and 45 halves to 22 and a half, so this one is reachable.",
+                    },
+                ]}
+                correctFeedback="Correct. Stepping gives multiples of 60 and halving keeps dividing by 2, so you can reach 60, 30, 15 and so on — but 70 would need the 60 degree angle split into three, and that cannot be done with arcs at all."
+                hints={[
+                    "Write down what stepping gives you: 60, 120, 180. Then keep halving each gap and list what appears.",
+                    "Halving 60 repeatedly gives 30, 15, 7.5 — never 70 or anything that needs a third of an angle.",
+                    "Three of these are built from stepping and halving. The odd one out would require cutting 60 into three equal parts, which arcs cannot do.",
+                ]}
+            />
+        </Block>
+    </StackLayout>,
+
+    <StackLayout key="layout-angles-practice-radius-size" maxWidth="xl">
+        <Block id="angles-practice-radius-size" padding="sm">
+            <MultipleChoiceQuestion
+                blockId="angles-practice-radius-size"
+                questionId="para-angles-practice-radius-size"
+                question="Ben constructs 60 degrees with his compasses opened to 3 cm. Zara constructs it with hers opened to 8 cm, so her arcs are far larger. Whose angle is bigger, and why?"
+                options={[
+                    {
+                        id: "zara-bigger",
+                        label: "Zara's, because a bigger radius sweeps out a bigger angle.",
+                        feedback: "A bigger radius makes a longer arc, but the angle at the vertex is a different thing from the length of the arc.",
+                    },
+                    {
+                        id: "ben-bigger",
+                        label: "Ben's, because a tighter radius closes the arms up.",
+                        feedback: "The radius does not pull the arms together — check what shape the two arcs actually create at the vertex.",
+                    },
+                    {
+                        id: "equal-equilateral",
+                        label: "Neither — both are exactly 60 degrees, because each construction builds an equilateral triangle and every equilateral triangle has 60 degree corners.",
+                        correct: true,
+                    },
+                    {
+                        id: "depends-line",
+                        label: "It depends on how long they drew the base line.",
+                        feedback: "The base line can be any length at all; extending it changes nothing about the angle at B.",
+                    },
+                ]}
+                correctFeedback="Exactly. BP, PQ and QB are all the same length whatever that length is, so the triangle is equilateral either way — which is why the instruction says any convenient radius."
+                hints={[
+                    "Build 60 degrees in the builder above and look at the three lengths BP, PQ and QB.",
+                    "All three of those lengths are the compass opening, so they are equal no matter which opening was chosen.",
+                    "A triangle with three equal sides has three equal angles of 60 degrees, and that is true for a small triangle and a large one alike.",
+                ]}
             />
         </Block>
     </StackLayout>,
