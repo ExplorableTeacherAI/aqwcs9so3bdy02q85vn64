@@ -141,6 +141,20 @@ export const variableDefinitions: Record<string, VariableDefinition> = {
     },
 
     // ========================================
+    // Tangents from an external point
+    // ========================================
+    tangentPointDistance: {
+        defaultValue: 11,
+        type: 'number',
+        label: 'Distance from O to P',
+        description: 'How far the external point P sits from the centre of the 5 cm circle, in cm',
+        unit: 'cm',
+        min: 6.5,
+        max: 17,
+        step: 0.1,
+    },
+
+    // ========================================
     // ADD YOUR VARIABLES HERE
     // ========================================
 

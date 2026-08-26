@@ -8,7 +8,8 @@ import {
     InlineFormula,
     Table,
 } from "@/components/atoms";
-import { VisualOptionCards } from "@/components/organisms";
+import { ExternalTangentBuilder } from "./visuals/ExternalTangentBuilder";
+import { MultipleChoiceQuestion } from "./practice/MultipleChoiceQuestion";
 
 const stageColumns = [
     { header: "Stage", align: "left" as const, width: 150 },
@@ -33,42 +34,15 @@ export const tangentConstructionsBlocks: ReactElement[] = [
                 A tangent is a line that touches a circle at exactly one point. Two
                 circle facts turn that into a construction: a tangent is perpendicular to
                 the radius at the point where it touches, and an angle drawn in a
-                semicircle is a right angle. The first fact handles a point on the
-                circle, the second handles a point outside it.
+                semicircle is a right angle. Step through the builder below to see the
+                second fact at work, then move P and watch the touch points slide round.
             </EditableParagraph>
         </Block>
     </StackLayout>,
 
     <StackLayout key="layout-tangents-viewer" maxWidth="xl">
-        <Block id="tangents-viewer" padding="sm">
-            <VisualOptionCards
-                blockId="tangents-viewer"
-                intro="Pick how your students will explore tangents."
-                cards={[
-                    {
-                        id: "tangent-touch-test",
-                        title: "A line pivoting at a point on a circle until it just touches",
-                        looks: "A circle with its centre and one marked point, a radius drawn to that point, and a line through it that can be swung round.",
-                        manipulate: "Students swing the line and watch how many times it crosses the circle, stopping when it touches only once, and read the angle it makes with the radius.",
-                        reveals: "The touching position is exactly where the line sits at right angles to the radius, which is why a tangent is a perpendicular construction.",
-                        recommended: true,
-                    },
-                    {
-                        id: "external-tangent-builder",
-                        title: "The two tangents from an outside point built stage by stage",
-                        looks: "A circle, a point outside it, the joining line, its midpoint, the helper circle drawn on that line, and the two touch points where the circles cross.",
-                        manipulate: "Students step through the stages, then drag the outside point nearer and further and watch the two touch points move.",
-                        reveals: "That the helper circle finds the touch points automatically, and the two tangent lengths stay equal wherever the point sits.",
-                    },
-                    {
-                        id: "semicircle-right-angle",
-                        title: "The right angle in a semicircle, shown as the reason the helper circle works",
-                        looks: "The helper circle drawn on the joining line as diameter, with the touch point on it and the right angle at that point marked.",
-                        manipulate: "Students drag the touch point around the helper circle and watch the angle stay at 90 degrees.",
-                        reveals: "Why any point on the helper circle sees the joining line at a right angle, so the crossing points must be the touch points.",
-                    },
-                ]}
-            />
+        <Block id="tangents-viewer" padding="sm" hasVisualization>
+            <ExternalTangentBuilder />
         </Block>
     </StackLayout>,
 
@@ -302,6 +276,128 @@ export const tangentConstructionsBlocks: ReactElement[] = [
                 ]}
                 color="#6366f1"
                 caption="Construction 15 — Tangents from an external point"
+            />
+        </Block>
+    </StackLayout>,
+
+    <StackLayout key="layout-tangents-practice-heading" maxWidth="xl">
+        <Block id="tangents-practice-heading" padding="sm">
+            <EditableH3 id="h3-tangents-practice-heading" blockId="tangents-practice-heading">
+                Check Your Understanding
+            </EditableH3>
+        </Block>
+    </StackLayout>,
+
+    <StackLayout key="layout-tangents-practice-helper-circle" maxWidth="xl">
+        <Block id="tangents-practice-helper-circle" padding="sm">
+            <MultipleChoiceQuestion
+                blockId="tangents-practice-helper-circle"
+                questionId="para-tangents-practice-helper-circle"
+                question="The helper circle drawn on OP seems to know exactly where the tangents will touch. What makes it land on the right two points?"
+                options={[
+                    {
+                        id: "same-size",
+                        label: "It happens to be the same size as the original circle.",
+                        feedback: "The two circles are almost never the same size — move P above and watch the helper circle grow while the original stays put.",
+                    },
+                    {
+                        id: "semicircle-right-angle",
+                        label: "OP is a diameter of it, so every point on it sees OP at a right angle — and a right angle at the circle is exactly what a tangent needs.",
+                        correct: true,
+                    },
+                    {
+                        id: "passes-through-p",
+                        label: "It passes through P, and any circle through P would do the same job.",
+                        feedback: "Countless circles pass through P. Only the one with OP as its diameter guarantees the right angle at the touch point.",
+                    },
+                    {
+                        id: "centre-m",
+                        label: "Its centre M is the midpoint of OP, and midpoints always give tangents.",
+                        feedback: "The midpoint matters only because it makes OP a diameter. Ask what a diameter does to every angle drawn on the circle.",
+                    },
+                ]}
+                correctFeedback="Exactly. Angle OAP sits in a semicircle, so it must be 90 degrees — which means PA is perpendicular to the radius OA, and a line perpendicular to a radius at the circle is a tangent."
+                hints={[
+                    "Step the builder above to the stage where the helper circle appears, and look at what OP is to that circle.",
+                    "Recall the circle fact about an angle drawn in a semicircle, then look at the angle at A.",
+                    "OP is a diameter of the helper circle, so angle OAP is 90 degrees — and a right angle between the line and the radius is precisely the test for a tangent.",
+                ]}
+            />
+        </Block>
+    </StackLayout>,
+
+    <StackLayout key="layout-tangents-practice-length" maxWidth="xl">
+        <Block id="tangents-practice-length" padding="sm">
+            <MultipleChoiceQuestion
+                blockId="tangents-practice-length"
+                questionId="para-tangents-practice-length"
+                question="A circular pond has radius 8 m and a post stands 17 m from its centre. A straight rope is pulled from the post so that it just grazes the edge of the pond. How long is the rope from the post to the grazing point?"
+                options={[
+                    {
+                        id: "nine",
+                        label: "9 m",
+                        feedback: "That is 17 take away 8, which measures along the line through the centre — but the rope does not run through the centre.",
+                    },
+                    {
+                        id: "fifteen",
+                        label: "15 m",
+                        correct: true,
+                    },
+                    {
+                        id: "twenty-five",
+                        label: "25 m",
+                        feedback: "That adds the radius to the distance instead of using the right-angled triangle the tangent creates.",
+                    },
+                    {
+                        id: "cannot-tell",
+                        label: "It cannot be worked out without measuring.",
+                        feedback: "There is a right angle where the rope touches the pond, and a right angle is all Pythagoras needs.",
+                    },
+                ]}
+                correctFeedback="Yes. The radius, the rope and the line to the post form a right-angled triangle with the 17 m as the hypotenuse, so the rope is the square root of 17 squared take away 8 squared, which is 15 m."
+                hints={[
+                    "Step the builder above to the last stage and look at the shape made by O, the touch point and P.",
+                    "That shape is a right-angled triangle: the radius is one short side, the tangent is the other, and OP is the hypotenuse.",
+                    "So the tangent squared equals 17 squared take away 8 squared, which is 289 take away 64.",
+                ]}
+            />
+        </Block>
+    </StackLayout>,
+
+    <StackLayout key="layout-tangents-practice-one-tangent" maxWidth="xl">
+        <Block id="tangents-practice-one-tangent" padding="sm">
+            <MultipleChoiceQuestion
+                blockId="tangents-practice-one-tangent"
+                questionId="para-tangents-practice-one-tangent"
+                question="From a point outside a circle you can always draw two tangents. Where must a point be if exactly one tangent can be drawn through it?"
+                options={[
+                    {
+                        id: "very-far",
+                        label: "Very far away from the circle.",
+                        feedback: "Push P as far out as the slider goes above and count the tangents. Distance never reduces them to one.",
+                    },
+                    {
+                        id: "on-the-circle",
+                        label: "On the circle itself.",
+                        correct: true,
+                    },
+                    {
+                        id: "inside",
+                        label: "Anywhere inside the circle.",
+                        feedback: "From inside, every straight line through the point cuts the circle twice, so there are no tangents at all.",
+                    },
+                    {
+                        id: "at-centre",
+                        label: "At the centre.",
+                        feedback: "The centre is inside the circle, and from inside no line can touch the circle just once.",
+                    },
+                ]}
+                correctFeedback="Right. A point on the circle has exactly one tangent, the one built in Construction 14; outside gives two; inside gives none. The two touch points slide closer together as P comes in, and merge into one just as P reaches the circle."
+                hints={[
+                    "Drag P inwards with the slider above and watch what the two touch points A and B do as P gets closer.",
+                    "The touch points slide towards each other. Imagine continuing until P actually reaches the circle — where would A and B be then?",
+                    "They meet at P itself, leaving a single tangent, so a point on the circle is the answer.",
+                ]}
             />
         </Block>
     </StackLayout>,
