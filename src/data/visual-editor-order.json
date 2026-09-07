@@ -1,4 +1,1327 @@
 {
-  "version": 2,
-  "blockIds": []
+  "version": 3,
+  "blockIds": [
+    "introduction-title",
+    "introduction-overview",
+    "introduction-definition-heading",
+    "introduction-definition-explanation",
+    "introduction-purpose-heading",
+    "introduction-purpose-explanation",
+    "introduction-comparison-heading",
+    "introduction-comparison-table",
+    "instruments-title",
+    "instruments-introduction",
+    "instruments-table",
+    "instruments-diagram",
+    "instruments-rules-heading",
+    "instruments-rules-table",
+    "instruments-practice-heading",
+    "instruments-practice-protractor",
+    "instruments-practice-slipped-hinge",
+    "instruments-practice-rubbed-arcs",
+    "terms-title",
+    "terms-introduction",
+    "terms-table",
+    "terms-diagram",
+    "terms-practice-heading",
+    "terms-practice-two-bisectors",
+    "terms-practice-length",
+    "terms-practice-forty-degrees",
+    "perpendiculars-title",
+    "perpendiculars-introduction",
+    "perpendiculars-viewer",
+    "perpendicular-bisector-heading",
+    "perpendicular-bisector-steps",
+    "midpoint-heading",
+    "midpoint-steps",
+    "perpendicular-at-point-heading",
+    "perpendicular-at-point-steps",
+    "perpendicular-from-external-heading",
+    "perpendicular-from-external-steps",
+    "perpendiculars-practice-heading",
+    "perpendiculars-practice-opening",
+    "perpendiculars-practice-unequal",
+    "perpendiculars-practice-fence",
+    "bisectors-title",
+    "bisectors-introduction",
+    "bisectors-viewer",
+    "angle-bisector-heading",
+    "angle-bisector-steps",
+    "parallel-line-heading",
+    "parallel-line-steps",
+    "copying-angle-heading",
+    "copying-angle-steps",
+    "bisectors-practice-heading",
+    "bisectors-practice-chaining",
+    "bisectors-practice-parallel-radius",
+    "bisectors-practice-drain",
+    "angles-title",
+    "angles-introduction",
+    "angles-family-table",
+    "angles-viewer",
+    "angle-sixty-heading",
+    "angle-sixty-steps",
+    "angle-thirty-heading",
+    "angle-thirty-steps",
+    "angle-ninety-heading",
+    "angle-ninety-steps",
+    "angle-forty-five-heading",
+    "angle-forty-five-steps",
+    "angle-one-twenty-heading",
+    "angle-one-twenty-steps",
+    "angle-seventy-five-heading",
+    "angle-seventy-five-steps",
+    "angles-practice-heading",
+    "angles-practice-hundred-five",
+    "angles-practice-not-constructible",
+    "angles-practice-radius-size",
+    "tangents-title",
+    "tangents-introduction",
+    "tangents-viewer",
+    "tangent-at-point-heading",
+    "tangent-at-point-steps",
+    "tangent-from-external-heading",
+    "tangent-from-external-steps",
+    "tangents-practice-heading",
+    "tangents-practice-helper-circle",
+    "tangents-practice-length",
+    "tangents-practice-one-tangent",
+    "triangles-title",
+    "triangles-introduction",
+    "triangles-cases-table",
+    "triangles-viewer",
+    "triangle-three-sides-heading",
+    "triangle-three-sides-steps",
+    "triangle-two-sides-angle-heading",
+    "triangle-two-sides-angle-steps",
+    "triangle-side-two-angles-heading",
+    "triangle-side-two-angles-steps",
+    "triangles-practice-heading",
+    "triangles-practice-impossible",
+    "triangles-practice-included",
+    "triangles-practice-angle-sum",
+    "wrapping-up-title",
+    "wrapping-up-summary",
+    "wrapping-up-next"
+  ],
+  "rows": [
+    {
+      "id": "layout-introduction-title",
+      "type": "stack",
+      "columns": [
+        [
+          "introduction-title"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-introduction-overview",
+      "type": "stack",
+      "columns": [
+        [
+          "introduction-overview"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-introduction-definition-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "introduction-definition-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-introduction-definition-explanation",
+      "type": "stack",
+      "columns": [
+        [
+          "introduction-definition-explanation"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-introduction-purpose-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "introduction-purpose-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-introduction-purpose-explanation",
+      "type": "stack",
+      "columns": [
+        [
+          "introduction-purpose-explanation"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-introduction-comparison-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "introduction-comparison-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-introduction-comparison-table",
+      "type": "stack",
+      "columns": [
+        [
+          "introduction-comparison-table"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-instruments-title",
+      "type": "stack",
+      "columns": [
+        [
+          "instruments-title"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-instruments-introduction",
+      "type": "stack",
+      "columns": [
+        [
+          "instruments-introduction"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-instruments-table",
+      "type": "stack",
+      "columns": [
+        [
+          "instruments-table"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-instruments-diagram",
+      "type": "stack",
+      "columns": [
+        [
+          "instruments-diagram"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-instruments-rules-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "instruments-rules-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-instruments-rules-table",
+      "type": "stack",
+      "columns": [
+        [
+          "instruments-rules-table"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-instruments-practice-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "instruments-practice-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-instruments-practice-protractor",
+      "type": "stack",
+      "columns": [
+        [
+          "instruments-practice-protractor"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-instruments-practice-slipped-hinge",
+      "type": "stack",
+      "columns": [
+        [
+          "instruments-practice-slipped-hinge"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-instruments-practice-rubbed-arcs",
+      "type": "stack",
+      "columns": [
+        [
+          "instruments-practice-rubbed-arcs"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-terms-title",
+      "type": "stack",
+      "columns": [
+        [
+          "terms-title"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-terms-introduction",
+      "type": "stack",
+      "columns": [
+        [
+          "terms-introduction"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-terms-table",
+      "type": "stack",
+      "columns": [
+        [
+          "terms-table"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-terms-diagram",
+      "type": "stack",
+      "columns": [
+        [
+          "terms-diagram"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-terms-practice-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "terms-practice-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-terms-practice-two-bisectors",
+      "type": "stack",
+      "columns": [
+        [
+          "terms-practice-two-bisectors"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-terms-practice-length",
+      "type": "stack",
+      "columns": [
+        [
+          "terms-practice-length"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-terms-practice-forty-degrees",
+      "type": "stack",
+      "columns": [
+        [
+          "terms-practice-forty-degrees"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-perpendiculars-title",
+      "type": "stack",
+      "columns": [
+        [
+          "perpendiculars-title"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-perpendiculars-introduction",
+      "type": "split",
+      "columns": [
+        [
+          "perpendiculars-introduction"
+        ],
+        [
+          "perpendiculars-viewer"
+        ]
+      ],
+      "props": {
+        "ratio": "1:1",
+        "gap": "lg",
+        "reverse": false,
+        "align": "start"
+      }
+    },
+    {
+      "id": "layout-perpendicular-bisector-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "perpendicular-bisector-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-perpendicular-bisector-steps",
+      "type": "stack",
+      "columns": [
+        [
+          "perpendicular-bisector-steps"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-midpoint-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "midpoint-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-midpoint-steps",
+      "type": "stack",
+      "columns": [
+        [
+          "midpoint-steps"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-perpendicular-at-point-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "perpendicular-at-point-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-perpendicular-at-point-steps",
+      "type": "stack",
+      "columns": [
+        [
+          "perpendicular-at-point-steps"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-perpendicular-from-external-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "perpendicular-from-external-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-perpendicular-from-external-steps",
+      "type": "stack",
+      "columns": [
+        [
+          "perpendicular-from-external-steps"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-perpendiculars-practice-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "perpendiculars-practice-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-perpendiculars-practice-opening",
+      "type": "stack",
+      "columns": [
+        [
+          "perpendiculars-practice-opening"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-perpendiculars-practice-unequal",
+      "type": "stack",
+      "columns": [
+        [
+          "perpendiculars-practice-unequal"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-perpendiculars-practice-fence",
+      "type": "stack",
+      "columns": [
+        [
+          "perpendiculars-practice-fence"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-bisectors-title",
+      "type": "stack",
+      "columns": [
+        [
+          "bisectors-title"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-bisectors-introduction",
+      "type": "stack",
+      "columns": [
+        [
+          "bisectors-introduction"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-bisectors-viewer",
+      "type": "stack",
+      "columns": [
+        [
+          "bisectors-viewer"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angle-bisector-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "angle-bisector-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angle-bisector-steps",
+      "type": "stack",
+      "columns": [
+        [
+          "angle-bisector-steps"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-parallel-line-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "parallel-line-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-parallel-line-steps",
+      "type": "stack",
+      "columns": [
+        [
+          "parallel-line-steps"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-copying-angle-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "copying-angle-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-copying-angle-steps",
+      "type": "stack",
+      "columns": [
+        [
+          "copying-angle-steps"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-bisectors-practice-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "bisectors-practice-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-bisectors-practice-chaining",
+      "type": "stack",
+      "columns": [
+        [
+          "bisectors-practice-chaining"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-bisectors-practice-parallel-radius",
+      "type": "stack",
+      "columns": [
+        [
+          "bisectors-practice-parallel-radius"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-bisectors-practice-drain",
+      "type": "stack",
+      "columns": [
+        [
+          "bisectors-practice-drain"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angles-title",
+      "type": "stack",
+      "columns": [
+        [
+          "angles-title"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angles-introduction",
+      "type": "stack",
+      "columns": [
+        [
+          "angles-introduction"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angles-family-table",
+      "type": "stack",
+      "columns": [
+        [
+          "angles-family-table"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angles-viewer",
+      "type": "stack",
+      "columns": [
+        [
+          "angles-viewer"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angle-sixty-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "angle-sixty-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angle-sixty-steps",
+      "type": "stack",
+      "columns": [
+        [
+          "angle-sixty-steps"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angle-thirty-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "angle-thirty-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angle-thirty-steps",
+      "type": "stack",
+      "columns": [
+        [
+          "angle-thirty-steps"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angle-ninety-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "angle-ninety-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angle-ninety-steps",
+      "type": "stack",
+      "columns": [
+        [
+          "angle-ninety-steps"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angle-forty-five-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "angle-forty-five-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angle-forty-five-steps",
+      "type": "stack",
+      "columns": [
+        [
+          "angle-forty-five-steps"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angle-one-twenty-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "angle-one-twenty-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angle-one-twenty-steps",
+      "type": "stack",
+      "columns": [
+        [
+          "angle-one-twenty-steps"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angle-seventy-five-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "angle-seventy-five-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angle-seventy-five-steps",
+      "type": "stack",
+      "columns": [
+        [
+          "angle-seventy-five-steps"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angles-practice-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "angles-practice-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angles-practice-hundred-five",
+      "type": "stack",
+      "columns": [
+        [
+          "angles-practice-hundred-five"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angles-practice-not-constructible",
+      "type": "stack",
+      "columns": [
+        [
+          "angles-practice-not-constructible"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-angles-practice-radius-size",
+      "type": "stack",
+      "columns": [
+        [
+          "angles-practice-radius-size"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-tangents-title",
+      "type": "stack",
+      "columns": [
+        [
+          "tangents-title"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-tangents-introduction",
+      "type": "stack",
+      "columns": [
+        [
+          "tangents-introduction"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-tangents-viewer",
+      "type": "stack",
+      "columns": [
+        [
+          "tangents-viewer"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-tangent-at-point-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "tangent-at-point-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-tangent-at-point-steps",
+      "type": "stack",
+      "columns": [
+        [
+          "tangent-at-point-steps"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-tangent-from-external-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "tangent-from-external-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-tangent-from-external-steps",
+      "type": "stack",
+      "columns": [
+        [
+          "tangent-from-external-steps"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-tangents-practice-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "tangents-practice-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-tangents-practice-helper-circle",
+      "type": "stack",
+      "columns": [
+        [
+          "tangents-practice-helper-circle"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-tangents-practice-length",
+      "type": "stack",
+      "columns": [
+        [
+          "tangents-practice-length"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-tangents-practice-one-tangent",
+      "type": "stack",
+      "columns": [
+        [
+          "tangents-practice-one-tangent"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-triangles-title",
+      "type": "stack",
+      "columns": [
+        [
+          "triangles-title"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-triangles-introduction",
+      "type": "stack",
+      "columns": [
+        [
+          "triangles-introduction"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-triangles-cases-table",
+      "type": "stack",
+      "columns": [
+        [
+          "triangles-cases-table"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-triangles-viewer",
+      "type": "stack",
+      "columns": [
+        [
+          "triangles-viewer"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-triangle-three-sides-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "triangle-three-sides-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-triangle-three-sides-steps",
+      "type": "stack",
+      "columns": [
+        [
+          "triangle-three-sides-steps"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-triangle-two-sides-angle-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "triangle-two-sides-angle-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-triangle-two-sides-angle-steps",
+      "type": "stack",
+      "columns": [
+        [
+          "triangle-two-sides-angle-steps"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-triangle-side-two-angles-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "triangle-side-two-angles-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-triangle-side-two-angles-steps",
+      "type": "stack",
+      "columns": [
+        [
+          "triangle-side-two-angles-steps"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-triangles-practice-heading",
+      "type": "stack",
+      "columns": [
+        [
+          "triangles-practice-heading"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-triangles-practice-impossible",
+      "type": "stack",
+      "columns": [
+        [
+          "triangles-practice-impossible"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-triangles-practice-included",
+      "type": "stack",
+      "columns": [
+        [
+          "triangles-practice-included"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-triangles-practice-angle-sum",
+      "type": "stack",
+      "columns": [
+        [
+          "triangles-practice-angle-sum"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-wrapping-up-title",
+      "type": "stack",
+      "columns": [
+        [
+          "wrapping-up-title"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-wrapping-up-summary",
+      "type": "stack",
+      "columns": [
+        [
+          "wrapping-up-summary"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    },
+    {
+      "id": "layout-wrapping-up-next",
+      "type": "stack",
+      "columns": [
+        [
+          "wrapping-up-next"
+        ]
+      ],
+      "props": {
+        "maxWidth": "xl"
+      }
+    }
+  ]
 }
