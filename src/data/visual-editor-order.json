@@ -431,20 +431,15 @@
     },
     {
       "id": "layout-perpendiculars-introduction",
-      "type": "split",
+      "type": "stack",
       "columns": [
         [
-          "perpendiculars-introduction"
-        ],
-        [
+          "perpendiculars-introduction",
           "perpendiculars-viewer"
         ]
       ],
       "props": {
-        "ratio": "1:1",
-        "gap": "lg",
-        "reverse": false,
-        "align": "start"
+        "maxWidth": "xl"
       }
     },
     {
